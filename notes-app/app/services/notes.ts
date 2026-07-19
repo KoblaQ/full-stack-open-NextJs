@@ -21,3 +21,7 @@ export const getNotes = () => {
 export const addNote = (content: string, important: boolean) => {
   notes.push({ id: nextId++, content, important })
 }
+
+export const getNoteById = (id: number) => {
+  return notes.find((note) => note.id === id)
+}
