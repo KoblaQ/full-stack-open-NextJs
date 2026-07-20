@@ -8,18 +8,20 @@ const Blogs = () => {
     <div>
       <h2>Blogs</h2>
       <ul>
-        {blogs.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blogs/${blog.id}`}>
-              <em>{blog.title}</em> by {blog.author}
-            </Link>
-            {/* <a href={blog.url} className="blogUrl">
+        {blogs
+          .sort((firstBlog, secondBlog) => secondBlog.likes - firstBlog.likes)
+          .map((blog) => (
+            <li key={blog.id}>
+              <Link href={`/blogs/${blog.id}`}>
+                <em>{blog.title}</em> by {blog.author}
+              </Link>
+              {/* <a href={blog.url} className="blogUrl">
               {blog.url}
             </a>
             <p>{blog.likes} likes</p> */}
-            <hr />
-          </li>
-        ))}
+              <hr />
+            </li>
+          ))}
       </ul>
     </div>
   )
