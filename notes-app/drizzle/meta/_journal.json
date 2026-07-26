@@ -8,6 +8,20 @@
       "when": 1785014562125,
       "tag": "0000_chief_magma",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1785069384661,
+      "tag": "0001_perfect_roulette",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1785069830206,
+      "tag": "0002_lean_dakota_north",
+      "breakpoints": true
     }
   ]
 }
