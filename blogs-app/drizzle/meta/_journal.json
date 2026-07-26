@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1785063850952,
+      "tag": "0000_great_shooting_star",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1785064829418,
+      "tag": "0001_kind_newton_destine",
+      "breakpoints": true
+    }
+  ]
+}
