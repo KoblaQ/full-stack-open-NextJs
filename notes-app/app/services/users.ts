@@ -17,3 +17,10 @@ export const getNotesByUserId = async (userId: number) => {
     where: eq(notes.userId, userId),
   })
 }
+
+export const getUserWithNotes = async (id: number) => {
+  return db.query.users.findFirst({
+    where: eq(users.id, id),
+    with: { notes: true },
+  })
+}

@@ -1,4 +1,5 @@
 import { pgTable, serial, text, boolean, integer } from 'drizzle-orm/pg-core'
+import { relations } from 'drizzle-orm'
 
 export const notes = pgTable('notes', {
   id: serial('id').primaryKey(),
@@ -14,3 +15,14 @@ export const users = pgTable('users', {
   username: text('username').notNull().unique(),
   name: text('name').notNull(),
 })
+
+export const userRelations = relations(users, ({ many }) => ({
+  notes: many(notes),
+}))
+
+export const notesRelations = relations(notes, ({ one }) => ({
+  user: one(users, {
+    fields: [notes.userId],
+    references: [users.id],
+  }),
+}))
