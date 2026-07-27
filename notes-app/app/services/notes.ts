@@ -35,7 +35,7 @@ export const addNote = async (content: string, important: boolean) => {
     orderBy: sql`RANDOM()`,
   })
 
-  await db.insert(notes).values({ content, important, userId: user.id })
+  await db.insert(notes).values({ content, important, userId: user!.id })
 }
 
 export const getNoteById = async (id: number) => {
