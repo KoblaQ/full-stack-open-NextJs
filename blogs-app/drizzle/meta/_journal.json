@@ -15,6 +15,20 @@
       "when": 1785064829418,
       "tag": "0001_kind_newton_destine",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1785152981224,
+      "tag": "0002_typical_proudstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1785153634671,
+      "tag": "0003_pretty_colossus",
+      "breakpoints": true
     }
   ]
 }
