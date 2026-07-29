@@ -1,6 +1,13 @@
 import { pgTable, serial, text, boolean, integer } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
 
+export const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  username: text('username').notNull().unique(),
+  name: text('name').notNull(),
+  passwordHash: text('password_hash').notNull().default(''),
+})
+
 export const notes = pgTable('notes', {
   id: serial('id').primaryKey(),
   content: text('content').notNull(),
@@ -8,12 +15,6 @@ export const notes = pgTable('notes', {
   userId: integer('user_id')
     .notNull()
     .references(() => users.id),
-})
-
-export const users = pgTable('users', {
-  id: serial('id').primaryKey(),
-  username: text('username').notNull().unique(),
-  name: text('name').notNull(),
 })
 
 export const userRelations = relations(users, ({ many }) => ({

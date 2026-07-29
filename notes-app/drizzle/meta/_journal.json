@@ -22,6 +22,13 @@
       "when": 1785069830206,
       "tag": "0002_lean_dakota_north",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1785166915170,
+      "tag": "0003_lonely_james_howlett",
+      "breakpoints": true
     }
   ]
 }
