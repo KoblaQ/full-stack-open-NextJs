@@ -1,10 +1,15 @@
+'use client'
+
+import { useActionState } from 'react'
 import { createNote } from '../../actions/notes'
 
 const NewNote = () => {
+  const [state, formAction] = useActionState(createNote, { error: '' })
+
   return (
     <div>
       <h2>Create a new note</h2>
-      <form action={createNote}>
+      <form action={formAction}>
         <div>
           <label>
             Content
@@ -13,11 +18,12 @@ const NewNote = () => {
         </div>
         <div>
           <label>
-            <input type="checkbox" name="important" required />
+            <input type="checkbox" name="important" />
             Important
           </label>
         </div>
         <button type="submit">Create</button>
+        {state.error && <p style={{ color: 'red' }}>{state.error}</p>}
       </form>
     </div>
   )
