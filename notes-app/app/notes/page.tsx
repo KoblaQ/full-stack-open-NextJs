@@ -19,22 +19,32 @@ const Notes = async ({
 
   // const notes = getNotes()
   return (
-    <div>
-      <h2>Notes</h2>
+    <div className="max-w-2x1 mx-auto p-6">
+      <h2 className="text-2x1 font-bold mb-4">Notes</h2>
 
-      <div>
-        <Link href={showImportant ? '/notes' : '/notes?important=true'}>
+      <div className="mb-4">
+        <Link
+          href={showImportant ? '/notes' : '/notes?important=true'}
+          className="text-blue-600 hover:underline"
+        >
           {showImportant ? 'show all' : 'show important only'}
         </Link>
       </div>
 
       {/* <NoteList notes={notes} /> */}
 
-      <ul>
+      <ul className="space-y-2">
         {notes.map((note) => (
-          <li key={note.id}>
-            <Link href={`/notes/${note.id}`}>{note.content}</Link>{' '}
-            {note.important && <strong>(important)</strong>}
+          <li key={note.id} className="border rounded p-3 hover:bg-gray-50">
+            <Link
+              href={`/notes/${note.id}`}
+              className="text-blue-600 hover:underline"
+            >
+              {note.content}
+            </Link>{' '}
+            {note.important && (
+              <strong className="ml-2 text-amber-600">(important)</strong>
+            )}
           </li>
         ))}
       </ul>
