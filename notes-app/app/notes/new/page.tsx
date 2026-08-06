@@ -18,6 +18,8 @@ const NewNote = () => {
     if (state.success) {
       showNotification('note created')
       router.push('/notes')
+    } else if (state.error) {
+      showNotification(state.error, 'error')
     }
   }, [state, showNotification, router])
 
@@ -38,7 +40,7 @@ const NewNote = () => {
           </label>
         </div>
         <button type="submit">Create</button>
-        {state.error && <p style={{ color: 'red' }}>{state.error}</p>}
+        {/* {state.error && <p style={{ color: 'red' }}>{state.error}</p>} */}
       </form>
     </div>
   )

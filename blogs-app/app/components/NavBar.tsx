@@ -3,8 +3,17 @@
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 
+import { useNotification } from '../components/NotificationContext'
+
 export default function NavBar() {
   const { data: session } = useSession()
+  const { showNotification } = useNotification()
+
+  const handleLogout = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    showNotification('Logged out successfully')
+    signOut()
+  }
 
   return (
     <nav>
@@ -19,7 +28,8 @@ export default function NavBar() {
           <Link href={'/blogs/new'}>Add blog</Link>
           {' | '}
           <em>{session.user?.name} logged in</em>{' '}
-          <button onClick={() => signOut()}>logout</button>
+          <button onClick={handleLogout}>logout</button>
+          {/* <button onClick={() => signOut()}>logout</button> */}
         </>
       ) : (
         <>

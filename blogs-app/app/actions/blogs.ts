@@ -35,7 +35,12 @@ export const createBlog = async (
   }
 
   if (Object.keys(errors).length > 0) {
-    return { errors, values: { title, author, url } }
+    return {
+      errors,
+      values: { title, author, url },
+      error: 'Blog creation attempt failed!',
+      success: false,
+    }
   }
 
   await addBlog(title, author, url)

@@ -1,7 +1,10 @@
 'use client'
-import { useActionState } from 'react'
+import { useActionState, useEffect } from 'react'
 
 import { registerUser } from '../actions/users'
+
+import { useNotification } from '../components/NotificationContext'
+import { useRouter } from 'next/navigation'
 
 const initialState: {
   errors: {
@@ -11,13 +14,29 @@ const initialState: {
     userExists?: string
   }
   values?: { username?: string; password?: string; name?: string }
+  success: boolean
+  error: string
 } = {
   errors: {},
   values: {},
+  success: false,
+  error: '',
 }
 
 export default function RegisterPage() {
   const [state, formAction] = useActionState(registerUser, initialState)
+
+  const { showNotification } = useNotification()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (state.success) {
+      showNotification('note created')
+      router.push('/notes')
+    } else if (!state.success) {
+      showNotification(state.error, 'error')
+    }
+  }, [state, showNotification, router])
 
   return (
     <div>

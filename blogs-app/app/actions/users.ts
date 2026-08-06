@@ -51,7 +51,12 @@ export const registerUser = async (
   }
 
   if (Object.keys(errors).length > 0) {
-    return { errors, values: { username, name, password } }
+    return {
+      errors,
+      values: { username, name, password },
+      success: false,
+      error: 'Registration attempt failed!',
+    }
   }
 
   await db.insert(users).values({ username, name, passwordHash })
