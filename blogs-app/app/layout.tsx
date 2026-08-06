@@ -1,3 +1,4 @@
+import './globals.css'
 import AuthSessionProvider from './components/SessionProvider'
 import NavBar from './components/NavBar'
 
@@ -11,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-100 min-h-screen bg-background text-foreground">
         <AuthSessionProvider>
           <NotificationProvider>
             <NavBar />

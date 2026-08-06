@@ -11,17 +11,22 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   return (
-    <div>
+    <div className="max-w-2x1 mx-auto p-6 space-y-2 border rounded">
       <p>
-        <em>{blog.title}</em> by {blog.author}
+        <em className="text-2x1 font-bold">{blog.title}</em> by {blog.author}
       </p>
-      <a href={blog.url} className="blogUrl">
+      <a href={blog.url} className="text-blue-600 hover:underline">
         {blog.url}
       </a>
       <p>{blog.likes} likes</p>{' '}
       <form action={addBlogLike}>
         <input type="hidden" name="id" value={blog.id} />
-        <button type="submit">like</button>
+        <button
+          type="submit"
+          className="bg-gray-600 hover:bg-gray-500 px-3 py-1 rounded text-sm"
+        >
+          like
+        </button>
       </form>
     </div>
   )

@@ -35,10 +35,10 @@ const NewBlog = () => {
   }, [state, showNotification, router])
 
   return (
-    <div>
-      <h2>Create a new blog</h2>
+    <div className="max-w-2x1 mx-auto p-6 space-y-4">
+      <h2 className="text-2x1 font-bold mb-4">Create a new blog</h2>
       {/* <form action={createBlog}> */}
-      <form action={formAction}>
+      <form action={formAction} className="space-y-4 border rounded p-4">
         <div>
           <label>
             Title:{' '}
@@ -47,6 +47,7 @@ const NewBlog = () => {
               name="title"
               required
               defaultValue={state.values?.title}
+              className="border rounded px-2 py-1 bg-gray-100 text-black"
             />
           </label>
           {state.errors?.title && (
@@ -61,6 +62,7 @@ const NewBlog = () => {
               name="author"
               required
               defaultValue={state.values?.author}
+              className="border rounded px-2 py-1 bg-gray-100 text-black"
             />
           </label>
           {state.errors?.author && (
@@ -76,13 +78,19 @@ const NewBlog = () => {
               name="url"
               required
               defaultValue={state.values?.url}
+              className="border rounded px-2 py-1 bg-gray-100 text-black"
             />
           </label>
           {state.errors.url && (
             <p style={{ color: 'red' }}>{state.errors.url}</p>
           )}
         </div>
-        <button type="submit">Create</button>
+        <button
+          type="submit"
+          className="bg-blue-600 hover:bg-green-500 text-white px-2 py-2 rounded"
+        >
+          Create
+        </button>
       </form>
     </div>
   )
