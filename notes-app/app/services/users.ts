@@ -24,3 +24,10 @@ export const getUserWithNotes = async (id: number) => {
     with: { notes: true },
   })
 }
+
+// SQL API
+const result = await db
+  .select()
+  .from(users)
+  .leftJoin(notes, eq(notes.userId, users.id))
+  .where(eq(users.id, 1))
